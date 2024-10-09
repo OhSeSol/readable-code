@@ -1,9 +1,17 @@
 package cleancode.studycafe.tobe;
 
+import cleancode.studycafe.tobe.io.ConsoleInputHandler;
+import cleancode.studycafe.tobe.io.ConsoleOutputHandler;
+import cleancode.studycafe.tobe.io.StudyCafeFileHandler;
+
 public class StudyCafeApplication {
 
     public static void main(String[] args) {
-        StudyCafePassMachine studyCafePassMachine = new StudyCafePassMachine();
+        StudyCafePassMachine studyCafePassMachine = new StudyCafePassMachine(
+                new ConsoleInputHandler(),
+                new ConsoleOutputHandler(),
+                new StudyCafeFileHandler()
+        );
         studyCafePassMachine.run();
     }
 

@@ -18,6 +18,20 @@ public class StudyCafePass {
         return new StudyCafePass(passType, duration, price, discountRate);
     }
 
+    public static StudyCafePass from(String fileLine) {
+        String[] values = fileLine.split(",");
+        StudyCafePassType passType = StudyCafePassType.valueOf(values[0]);
+        int duration = Integer.parseInt(values[1]);
+        int price = Integer.parseInt(values[2]);
+        double discountRate = Double.parseDouble(values[3]);
+
+        return of(passType, duration, price, discountRate);
+    }
+
+    public boolean isPassTypeEqualTo(StudyCafePassType passType) {
+        return this.passType == passType;
+    }
+
     public StudyCafePassType getPassType() {
         return passType;
     }
